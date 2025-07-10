@@ -64,7 +64,7 @@ export default function Test1() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Accessibility: apply inert to background when modal is active
+  // Accessibility: apply inert to background when modal is active//
   useEffect(() => {
     const mainContent = document.getElementById("main-content");
     if (mainContent) {
@@ -161,3 +161,8 @@ export default function Test1() {
     </div>
   );
 }
+
+// get Data from localStorage
+// const localData = JSON.parse(localStorage.getItem("userList"));
+// localData[0];
+// localData[0].firstName;
