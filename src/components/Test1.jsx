@@ -15,13 +15,21 @@ export default function Test1() {
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.firstName.trim()) newErrors.firstName = "First name required";
-    if (!formData.lastName.trim()) newErrors.lastName = "Last name required";
-    if (!formData.birthDate.trim() || isNaN(Date.parse(formData.birthDate)))
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "First name required";
+    }
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Last name required";
+    }
+    if (!formData.birthDate.trim() || isNaN(Date.parse(formData.birthDate))) {
       newErrors.birthDate = "Valid birthdate required";
-    if (!formData.email.trim() || !/^\S+@\S+\.\S+$/.test(formData.email))
+    }
+    if (!formData.email.trim() || !/^\S+@\S+\.\S+$/.test(formData.email)) {
       newErrors.email = "Valid email required";
-    if (!formData.gender) newErrors.gender = "Gender required";
+    }
+    if (!formData.gender) {
+      newErrors.gender = "Gender required";
+    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -38,11 +46,13 @@ export default function Test1() {
   };
 
   const handleSubmit = () => {
+    // Data in localstorage
     if (validate()) {
       const existing = JSON.parse(localStorage.getItem("userList")) || [];
       existing.push(formData);
       localStorage.setItem("userList", JSON.stringify(existing));
 
+      // success Toast
       alert("✅ User added successfully!");
       setShowModal(false);
       handleClear();
