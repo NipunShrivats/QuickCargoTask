@@ -87,7 +87,7 @@ export default function Test1() {
         <div className="modal-overlay">
           <div className="modal" role="dialog" aria-modal="true" ref={modalRef}>
             <button className="close-btn" onClick={() => setShowModal(false)}>
-              X
+              x
             </button>
             <h3>Add User</h3>
             <div className="form-field">
